@@ -78,44 +78,37 @@ void inicializar()
 
 void insere()
 {
-	// aloca memoria dinamicamente para o novo elemento
 	NO* novo = (NO*)malloc(sizeof(NO));
-	cout << "Digite o elemento: ";
-	cin >> novo->valor;
-	novo->prox = NULL;
-	
-	if (novo == NULL)
-	{
-		return;
-	}
+    cout << "Digite o número a ser adicionado" << endl;
+    cin >> novo->valor;
 
-	if (inicio == NULL) {
-		inicio = novo;
-		fim = novo;
-	}
+    if (novo == NULL){
+        return;
+    }
 
-	else {
-		fim->prox = novo;
-		fim = novo;
-	}
-	
+    if (inicio == NULL){
+        inicio = novo;
+        fim = novo;
+    }
 
+    else {
+        inicio->prox = novo;
+        novo->prox = NULL;
+        fim  = novo;
+    }
 
 }
 
 void remove()
 {
-	if (inicio == NULL) {
-		cout << "Lista vazia. Impossível excluir." << endl;
-	}
+	if(inicio == NULL){
+        cout << "Não há elementos para efetuar a remoção" << endl;
+    }
 
-	else {
-		NO* aux = inicio;
-		cout << "Elemento a ser excluído: " << aux->valor << endl;
-		inicio = inicio->prox;
-		free(aux);
-		cout << "Elemento excluído";
-	}
-
-
+    else {
+        NO* aux = inicio;
+        cout << "Elemento a ser excluído:" << aux->valor << endl;
+        inicio = inicio->prox;
+        free(aux);
+    }
 }
