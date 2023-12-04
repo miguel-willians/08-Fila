@@ -78,7 +78,7 @@ void inicializar()
 
 void insere()
 {
-	NO* novo = (NO*)malloc(sizeof(NO));
+    NO* novo = (NO*)malloc(sizeof(NO));
     cout << "Digite o número a ser adicionado" << endl;
     cin >> novo->valor;
 
